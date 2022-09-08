@@ -43,3 +43,23 @@ class TwoSum {
 }
 let t = TwoSum()
 t.twoSum(nums, target)
+
+//
+class Solution2 {
+    func twoSum(_ nums: [Int], _ target: Int) -> [Int] {
+        var a = [Int]()
+        for (i,va) in nums.enumerated() {
+            for j in i+1..<nums.count{
+                if va + nums[j] == target{
+                    a.append(i)
+                    a.append(j)
+                }
+            }
+        }
+        return a
+    }
+}
+
+
+
+
