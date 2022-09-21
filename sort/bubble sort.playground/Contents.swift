@@ -24,6 +24,7 @@ print(nums)
 
 
 func bubbleSort(_ array: [Int]) ->[Int] {
+    guard array.count > 1 else { return array } 
     var sortedArray = array
     for i in 0..<sortedArray.count {
         var flag = true

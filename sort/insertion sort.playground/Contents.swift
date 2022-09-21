@@ -20,6 +20,7 @@ print(nums)
 //
 
 func insertionSort(_ array: [Int]) -> [Int] {
+    guard array.count > 1 else { return array } 
     var sortedArray = array
     for i in 1..<sortedArray.count {
         var j = i
