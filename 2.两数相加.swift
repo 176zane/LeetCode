@@ -21,16 +21,15 @@ class Solution {
         let result = ListNode()
         var step = 0
         var currentNode = result
-        repeat{
-            let v = (l1?.val ?? 0)  + (l2?.val ?? 0)  + step
-            step = v / 10
-            var node = ListNode(v % 10)
-            currentNode.next = node
+        
+        while l1 != nil || l2 != nil || step != 0 {
+            let sum = (l1?.val ?? 0) + (l2?.val ?? 0) + step
+            step = sum / 10
+            currentNode.next = ListNode(sum % 10)
             currentNode = currentNode.next!
-
             l1 = l1?.next
             l2 = l2?.next
-        }while l1 != nil || l2 != nil || step != 0 
+        }
         
         return result.next
     }
