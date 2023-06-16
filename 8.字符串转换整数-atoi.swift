@@ -1,3 +1,10 @@
+/*
+ * @lc app=leetcode.cn id=8 lang=swift
+ *
+ * [8] 字符串转换整数 (atoi)
+ */
+
+// @lc code=start
 class Solution {
     func myAtoi(_ s: String) -> Int {
         var result : Int64 = 0
@@ -48,8 +55,5 @@ class Solution {
         return a
     }
 }
+// @lc code=end
 
-var s = Solution()
-//s.myAtoi("words and 987")//没有考虑到这种情况
-s.myAtoi(" -42")
-s.myAtoi("20000000000000000000")//没有考虑到这种情况
