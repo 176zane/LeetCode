@@ -17,6 +17,11 @@
  */
 class Solution {
     func addTwoNumbers(_ l1: ListNode?, _ l2: ListNode?) -> ListNode? {
+        
+    }
+}
+class Solution2 {
+    func addTwoNumbers(_ l1: ListNode?, _ l2: ListNode?) -> ListNode? {
         var l1 = l1,l2 = l2
         let result = ListNode()
         var step = 0

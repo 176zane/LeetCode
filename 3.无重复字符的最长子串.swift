@@ -8,6 +8,11 @@
 
 class Solution {
     func lengthOfLongestSubstring(_ s: String) -> Int {
+       
+    }
+}
+class Solution2 {
+    func lengthOfLongestSubstring(_ s: String) -> Int {
         var max = 0
         var cArray : [Character] = []
         for c in s {
@@ -21,7 +26,7 @@ class Solution {
         return max
     }
 }
-class Solution2{
+class Solution3{
     func lengthOfLongestSubstring(_ s: String) -> Int {
         
         var max = 0
