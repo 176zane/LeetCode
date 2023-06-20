@@ -21,14 +21,14 @@ class Solution {
                 let sum = nums[i] + nums[j] + nums[k]
                 if sum < 0 {
                     j += 1
-                    while j < k && nums[j] == nums[j-1] {
-                        j += 1
-                    }
+                    // while j < k && nums[j] == nums[j-1] {
+                    //     j += 1
+                    // }
                 }else if sum > 0 {
                     k -= 1
-                    while j < k && nums[k] == nums[k+1] {
-                        k -= 1
-                    }
+                    // while j < k && nums[k] == nums[k+1] {
+                    //     k -= 1
+                    // }
                 }else {
                     result.append([nums[i],nums[j],nums[k]])
                     j += 1
