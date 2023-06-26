@@ -5,6 +5,7 @@
  */
 
 // @lc code=start
+//写的太丑 看答案
 class Solution {
     func longestCommonPrefix(_ strs: [String]) -> String {
         if strs.isEmpty {return ""}
