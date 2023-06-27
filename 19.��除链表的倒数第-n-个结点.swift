@@ -15,6 +15,11 @@
  *     public init(_ val: Int, _ next: ListNode?) { self.val = val; self.next = next; }
  * }
  */
+
+ //https://leetcode.cn/problems/remove-nth-node-from-end-of-list/solutions/450350/shan-chu-lian-biao-de-dao-shu-di-nge-jie-dian-b-61/
+
+ //多测试几遍用例
+ //画一个图出来看
 class Solution {
     func removeNthFromEnd(_ head: ListNode?, _ n: Int) -> ListNode? {
         var dummy : ListNode? = ListNode(0, head)
@@ -24,7 +29,7 @@ class Solution {
             first = first?.next
         }
         //second是要删除结点的前一个结点
-        while first != nil {
+        while first != nil {//上一步有可能就直接first为空了
             first = first?.next
             second = second?.next
         }
