@@ -14,15 +14,10 @@ func merge(_ leftPile: [Int],_ rightPile: [Int]) -> [Int] {
     var orderedPile = [Int]()
     // 3
     while leftIndex < leftPile.count && rightIndex < rightPile.count {
-        if leftPile[leftIndex] < rightPile[rightIndex] {
+        if leftPile[leftIndex] <= rightPile[rightIndex] {
             orderedPile.append(leftPile[leftIndex])
             leftIndex += 1
         } else if leftPile[leftIndex] > rightPile[rightIndex] {
-            orderedPile.append(rightPile[rightIndex])
-            rightIndex += 1
-        } else {
-            orderedPile.append(leftPile[leftIndex])
-            leftIndex += 1
             orderedPile.append(rightPile[rightIndex])
             rightIndex += 1
         }
@@ -39,6 +34,6 @@ func merge(_ leftPile: [Int],_ rightPile: [Int]) -> [Int] {
     return orderedPile
 }
 
-let list = [ 10, -1, 3, 9, 2, 27, 8, 5, 1, 3, 0, 26 ]
+let list = [ 10, -1, 3, 9, 2, 27, 8, 5, 1, 3, 0, 26,2,3,3,6,4,9,9,5,65,5, ]
 
 mergeSort(list)

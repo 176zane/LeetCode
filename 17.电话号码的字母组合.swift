@@ -5,6 +5,8 @@
  */
 
 // @lc code=start
+
+//回溯算法
 class Solution {
     func letterCombinations(_ digits: String) -> [String] {
         var combinations = [String]()
