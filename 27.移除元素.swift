@@ -5,6 +5,8 @@
  */
 
 // @lc code=start
+
+//特别注意 nums.enumerated().reversed() 和nums.reversed().enumerated()的区别
 class Solution {
     func removeElement(_ nums: inout [Int], _ val: Int) -> Int {
         var k = nums.count-1
