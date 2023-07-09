@@ -14,7 +14,7 @@ class Solution {
                 return mid
             }
             //一定会有一边有序
-            if nums[l] <= nums[mid] {//左边有序
+            if nums[l] <= nums[mid] {//左边有序  //<=很重要！！！
                 if nums[mid] < target || target < nums[l] {
                     l = mid + 1
                 }else {
