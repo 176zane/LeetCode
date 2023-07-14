@@ -20,7 +20,34 @@
  *     }
  * }
  */
-class Solution {
+ class Solution {
+    func levelOrder(_ root: TreeNode?) -> [[Int]] {
+        var result = [[Int]]()
+        var queue = [TreeNode]()
+        if let node = root {
+            queue.append(node)
+        }
+        while queue.count > 0 {
+            var n = queue.count//记录当前队列中元素数量
+            var valArray = [Int]()
+            for _ in 0..<n {
+                var node = queue.removeFirst()
+                valArray.append(node.val)
+                
+                if let left = node.left {
+                    queue.append(left)
+                }
+                if let right = node.right {
+                    queue.append(right)
+                }
+            }
+            result.append(valArray)
+        }
+        return result
+    }
+}
+
+class Solution2 {
     func levelOrder(_ root: TreeNode?) -> [[Int]] {
         var result = [[Int]]()
         var queue = [TreeNode]()
@@ -29,6 +56,7 @@ class Solution {
         }
         while queue.count > 0 {
             var nodeArray = [TreeNode]()
+
             while queue.count > 0 {
                 let node = queue.removeFirst()
                 nodeArray.append(node)
