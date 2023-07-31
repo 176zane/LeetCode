@@ -19,6 +19,22 @@
 
 class Solution {
     func hasCycle(_ head: ListNode?) -> Bool {
+        var i = head, j = head
+        while j?.next != nil {
+            i = i?.next
+            j = j?.next?.next
+            //'===' 是比较两个对象的地址是否相等，==不行是因为listNode不满足equalable协议
+            if i === j {
+                return true
+            }
+            
+        }
+        return false
+    }
+}
+
+class Solution2 {
+    func hasCycle(_ head: ListNode?) -> Bool {
         var i = head, j = head?.next
         while j != nil {
             //'===' 是比较两个对象的地址是否相等，==不行是因为listNode不满足equalable协议
@@ -32,5 +48,9 @@ class Solution {
         return false
     }
 }
+
+
+
+
 // @lc code=end
 
