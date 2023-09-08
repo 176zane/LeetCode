@@ -1,13 +1,13 @@
 class Solution {
     func insertionSort(_ nums: inout [Int]) {
         for i in 1..<nums.count {
-            let value = nums[i]
-            var p = i - 1
-            while p >= 0 && nums[p] > value {
-                nums[p+1] = nums[p]
-                p -= 1
+            let temp = nums[i]
+            var j = i - 1
+            while j >= 0 && nums[j] > temp {
+                nums[j+1] = nums[j]
+                j -= 1
             }
-            nums[p+1] = value
+            nums[j+1] = temp
         }
     }
 }

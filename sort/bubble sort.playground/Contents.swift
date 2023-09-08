@@ -1,18 +1,16 @@
 class Solution {
     func bubbleSort(_ nums: inout [Int]) {
-        for i in 0..<nums.count {
-            var changed = false
+        for i in 0..<nums.count-1 {
+            var flag = true
             for j in 0..<nums.count-1-i {
                 if nums[j] > nums[j+1] {
                     let temp = nums[j+1]
                     nums[j+1] = nums[j]
                     nums[j] = temp
-                    changed = true
+                    flag = false
                 }
             }
-            if !changed {
-                break
-            }
+            if flag { break }
         }
     }
 }
