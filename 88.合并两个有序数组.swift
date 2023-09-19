@@ -5,6 +5,7 @@
  */
 
 // @lc code=start
+//逆向遍历 注意细节
 class Solution {
     func merge(_ nums1: inout [Int], _ m: Int, _ nums2: [Int], _ n: Int) {
         var i = m-1 ,j = n-1
