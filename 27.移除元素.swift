@@ -19,6 +19,7 @@ class Solution {
         return a + 1
     }
 }
+
 class Solution2 {
     func removeElement(_ nums: inout [Int], _ val: Int) -> Int {
         var k = nums.count-1
