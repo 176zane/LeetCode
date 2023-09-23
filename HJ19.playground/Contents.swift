@@ -1,49 +1,52 @@
 import Foundation
 
+class File {
+    var name: String
+    var line: Int
+    var count = 1
+    init(_ name: String,_ line: Int) {
+        self.name = name
+        self.line = line
+    }
+}
+var recordSet = Set<String>()
+var fileSet = Set<String>()
+var fileArray = [File]()
+
 while let str = readLine() {
-    if str.count < 8 {
-        print("NG")
-        break
-    }
+    if recordSet.contains(str) {continue}
+    recordSet.insert(str)
     
-    var countArray = [0,0,0,0]
-    for c in str {
-        if c.isNumber {
-            countArray[0] = 1
-        }else if c.isUppercase {
-            countArray[1] = 1
-        }else if c.isLowercase {
-            countArray[2] = 1
-        }else {
-            countArray[3] = 1
+    var parts = str.split(separator: " ")
+    var name = getName(String(parts[0]))
+    var line = String(parts[1])
+    var file = name + line
+    if fileSet.contains(file) {
+        for f in fileArray {
+            if f.name == name && f.line == Int(line)! {
+                f.count += 1
+            }
         }
+    }else {
+        fileSet.insert(file)
+        var f = File(name, Int(line)!)
+        fileArray.append(f)
     }
-    var sum = 0
-    for i in countArray {
-        sum += i
-    }
-    if sum < 3 {
-        print("NG")
-        break
-    }
-    if hasDuplicateSubstring(str) {
-        print("NG")
-        break
-    }
-    print("OK")
 }
 
-func hasDuplicateSubstring(_ str:String) ->Bool {
-    var subSet = Set<String>()
-    for i in 0..<str.count - 3{
-        var s = str[str.index(str.startIndex, offsetBy: i)...str.index(str.startIndex, offsetBy: i+2)]
-        if subSet.contains(String(s)) {
-            return true
-        }else {
-            subSet.insert(String(s))
-        }
-    }
-    return false
+while fileArray.count > 8 {
+   fileArray.removeFirst()
+}
+for f in fileArray {
+    print("\(f.name) \(f.line) \(f.count)")
 }
 
-//hasDuplicateSubstring("~!+8+*fQO%&(2974)W9~D6X60T5%@1V1961*&+8+!046F#q#+S")
+func getName(_ route:String) -> String {
+    var parts = route.split(separator: "\\")
+    var last = parts.last!
+    if last.count > 16 {
+        last = last[last.index(last.endIndex, offsetBy: -16)..<last.endIndex]
+        
+    }
+    return String(last)
+}
