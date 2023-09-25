@@ -8,10 +8,30 @@
 //
 class Solution {
     func longestPalindrome(_ s: String) -> String {
-        
+        var cArray = Array(s)
+        var resultS = String()
+        for i in 0..<cArray.count {
+            let maxS = expand(cArray, i, i)
+            resultS = resultS.count > maxS.count ? resultS : maxS
+            if i + 1 < cArray.count && cArray[i] == cArray[i+1] {
+                let maxS = expand(cArray, i, i+1)
+                resultS = resultS.count > maxS.count ? resultS : maxS
+            }
+        }
+        return resultS
+    }
+    func expand(_ s:[Character],_ left: Int,_ right: Int) -> String {
+        var left = left,right = right
+        while left >= 0 && right < s.count && s[left] == s[right] {
+            left -= 1
+            right += 1
+        }
+        let max = s[left+1...right-1]
+        return String(max)
     }
 }
 
+//动态规划
 class Solution3 {
     func longestPalindrome(_ s: String) -> String {
         if s.count < 2 {return s}

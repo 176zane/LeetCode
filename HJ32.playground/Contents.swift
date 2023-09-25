@@ -3,9 +3,9 @@ import Foundation
 if let str = readLine() {
     var maxLength = 0
     let sArray = Array(str)
-    for i in 0..<sArray.count-1 {
+    for i in 0..<sArray.count {
         maxLength = max(maxLength,expand(sArray,i,i))
-        if sArray[i] == sArray[i+1] {
+        if i+1 < sArray.count && sArray[i] == sArray[i+1] {
             maxLength = max(maxLength,expand(sArray,i,i+1))
         }
     }
