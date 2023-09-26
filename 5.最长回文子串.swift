@@ -6,6 +6,7 @@
 
 // @lc code=start
 //
+//中心扩散法
 class Solution {
     func longestPalindrome(_ s: String) -> String {
         var cArray = Array(s)
@@ -37,13 +38,14 @@ class Solution3 {
         if s.count < 2 {return s}
         
         var cArray = Array(s)
-        var resultArray = Array(repeating: Array(repeating: false, count: cArray.count), count: cArray.count)
+        var dp = Array(repeating: Array(repeating: false, count: cArray.count), count: cArray.count)
         var l = 0
         var r = 0
-        for j in 1..<cArray.count {
-            for i in 0..<j {
-                if cArray[i]==cArray[j] && (resultArray[i+1][j-1] || j-i < 3) {
-                    resultArray[i][j] = true
+        //i 从i + 1的状态来，所以反向遍历   注意边界值
+        for i in (0..<cArray.count-1).reversed() {
+            for j in i+1..<cArray.count {
+                if cArray[i]==cArray[j] && (j-i < 3||dp[i+1][j-1]) {
+                    dp[i][j] = true
                     if j - i > r - l {
                         l = i
                         r = j
@@ -55,7 +57,6 @@ class Solution3 {
         return String(cArray[l...r])
     }
 }
-
 
 
 
