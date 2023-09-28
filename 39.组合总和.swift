@@ -13,15 +13,15 @@ class Solution {
         return result
     }
     func dfs(_ candidates:[Int],_ index: Int,_ target: Int,_ current: inout [Int],_ result: inout [[Int]] ) {
-        if index == candidates.count {
+        if index == candidates.count {//candidates遍历完  返回
             return
         }
-        if target == 0 {
+        if target == 0 {//找到结果 返回
             result.append(current)
             return
         }
         
-        //直接跳过
+        //直接跳过当前项
         dfs(candidates,index+1,target,&current,&result)
         
         if target - candidates[index] >= 0 {
