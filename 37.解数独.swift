@@ -35,7 +35,7 @@ class Solution {
         }
         let charArray:[Character] = ["1","2","3","4","5","6","7","8","9"]
                 
-   if board[row][col] == "." {
+        if board[row][col] == "." {
             let boxNum = (row/3)*3+(col/3)
             for c in charArray {
                 let contain = rowSetArray[row].contains(c)||columnSetArray[col].contains(c)||boxSetArray[boxNum].contains(c)
