@@ -26,7 +26,7 @@ class Solution {
             if canPut(matrix,row,col) {
                 matrix[row][col] = "Q"
                 recuriveResolve(&matrix,row+1,&resultArray)
-                matrix[row][col] = "."
+                matrix[row][col] = "."//状态重置！！！
             }
         }
         
